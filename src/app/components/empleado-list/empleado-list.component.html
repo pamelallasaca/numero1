@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <app-count-empleados></app-count-empleados>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>legajo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Sexo</th>
+            <th>Salario</th>
+          </tr>
+          <ng-container *ngFor="let empleado of listEmpleados">
+            <tr
+              *ngIf="
+                radioButtonSeleccionado == 'Todos' ||
+                radioButtonSeleccionado == empleado.sexo
+              "
+            >
+              <td>{{ empleado.legajo }}</td>
+              <td>{{ empleado.nombre }}</td>
+              <td>{{ empleado.apellido }}</td>
+              <td>{{ empleado.sexo }}</td>
+              <td>{{ empleado.salario | currency }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
